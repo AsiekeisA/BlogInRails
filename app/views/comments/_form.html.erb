@@ -1,0 +1,15 @@
+<%= form_with model: [ @post, @post.comments.build ] do |form| %>
+  <div>
+    <%= form.label :user, style: "display: block" %>
+    <%= form.text_field :user %>
+  </div>
+
+  <div>
+    <%= form.label :content, style: "display: block" %>
+    <%= form.text_area  :content %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

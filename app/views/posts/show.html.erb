@@ -15,3 +15,12 @@
   <%= button_to "Destroy this post", @post, method: :delete,
                 data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
 </div>
+<div class="container">
+  <h5> <%= @post.comments.count %> Comments</h5>
+  <%= render @post.comments %>
+  <div>
+    <br/>
+    <h6>Add Comment</h6>
+    <%= render "comments/form"%>
+  </div>
+</div>
