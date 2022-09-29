@@ -18,6 +18,8 @@ gem 'better_errors', '~> 2.9', '>= 2.9.1' #error
 gem 'bulma-rails', '~> 0.9.3' #css
 gem 'simple_form', '~> 5.1' #forms
 
+gem 'devise', '~> 4.8', '>= 4.8.1'
+
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
