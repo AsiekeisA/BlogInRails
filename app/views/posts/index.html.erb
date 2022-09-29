@@ -1,1 +1,10 @@
 <h1>Posts</h1>
+
+<section>
+    <% @posts.each do |post|%>
+      <div>
+        <div>Tytuł <%= link_to post.title, post %></div>
+        <div>Tresc <%= post.content %></div>
+      </div>
+    <% end %>
+</section>
