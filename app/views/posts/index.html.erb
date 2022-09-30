@@ -1,10 +1,19 @@
 <h1>Posts</h1>
-
 <section>
-    <% @posts.each do |post|%>
-      <div>
-        <div>Tytuł <%= link_to post.title, post %></div>
-        <div>Tresc <%= post.content %></div>
+  <% @posts.each do |post|%>
+    <br/>
+      <div class="card">
+        <div class="card-header">
+          <h5><%= post.title %></h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text"><%= post.content %></p>
+          <%= link_to 'Wiecej...', post, class:"btn btn-primary text-end" %>
+        </div>
+        <div class="card-footer text-muted text-end">
+          <%= post.created_at.strftime("%k:%M %d/%m/%Y") %>
+        </div>
       </div>
-    <% end %>
+
+  <% end %>
 </section>
