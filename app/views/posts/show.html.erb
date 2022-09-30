@@ -1,13 +1,15 @@
 <ul class="nav justify-content-end">
+  <% if user_signed_in? && current_user.id==1%>
+    <li class="nav-item">
+      <%= link_to "Edit", edit_post_path(@post), class:"btn btn-outline-secondary" %>
+    </li>
+    <li class="nav-item">
+      <%= button_to "Destroy", @post, method: :delete,
+                  data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn btn-outline-danger"  %>
+    </li>
+  <% end %>
   <li class="nav-item">
-    <%= button_to "Edit", edit_post_path(@post) %>
-  </li>
-  <li class="nav-item">
-    <%= button_to "Destroy", @post, method: :delete,
-                data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-  </li>
-  <li class="nav-item">
-    <%= button_to "Back to posts", posts_path%>
+    <%= link_to "Back to posts", posts_path, class:"btn btn-outline-secondary" %>
   </li>
 </ul>
 <br/>
@@ -22,7 +24,7 @@
   </div>
 <br/>
 <div class="container">
-  <h5> <%= @post.comments.count %> Comments</h5>
+  <h5> <%= @post.comments.count %> Comment<% if @post.comments.count != 1 %>s<% end %></h5>
   <%= render @post.comments %>
   <div>
     <h6>Add Comment</h6>

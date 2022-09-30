@@ -26,7 +26,12 @@
         <% end %>
       </ul>
       <span class="navbar-text">
-        Hello User!
+        Hello
+        <% if user_signed_in? %>
+          <%= current_user.email %>
+        <% else %>
+          User
+        <% end %>!
       </span>
     </div>
   </div>
