@@ -1,25 +1,30 @@
-<div>
-   <h1><%= @post.title %></h1>
-<!--    <div><%#= @post.created_at%></div>-->
-  <div>
-    <div><%= @post.content %></div>
-    <strong>id:</strong>
-    <%= @post.id %>
-  </div>
-
-</div>
-
-<div>
-  <%= link_to "Edit", edit_post_path(@post) %> |
-  <%= link_to "Back to posts", posts_path %>
-  <%= button_to "Destroy this post", @post, method: :delete,
+<ul class="nav justify-content-end">
+  <li class="nav-item">
+    <%= button_to "Edit", edit_post_path(@post) %>
+  </li>
+  <li class="nav-item">
+    <%= button_to "Destroy", @post, method: :delete,
                 data: { turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-</div>
+  </li>
+  <li class="nav-item">
+    <%= button_to "Back to posts", posts_path%>
+  </li>
+</ul>
+<br/>
+<div class="card">
+  <div class="card-header">
+    <h1><%= @post.title %></h1>
+    <div><%= @post.created_at.strftime("%k:%M %d/%m/%Y") %></div>
+  </div>
+  <div class="card-body">
+    <p class="card-text"><%= @post.content %></p>
+  </div>
+  </div>
+<br/>
 <div class="container">
   <h5> <%= @post.comments.count %> Comments</h5>
   <%= render @post.comments %>
   <div>
-    <br/>
     <h6>Add Comment</h6>
     <%= render "comments/form"%>
   </div>

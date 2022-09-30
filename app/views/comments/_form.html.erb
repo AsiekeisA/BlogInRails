@@ -1,15 +1,14 @@
 <%= form_with model: [ @post, @post.comments.build ] do |form| %>
-  <div>
-    <%= form.label :user, style: "display: block" %>
-    <%= form.text_field :user %>
+  <div class="mb-3">
+    <%= form.text_field :user, class:"form-control", placeholder:"Author name" %>
   </div>
 
-  <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.text_area  :content %>
+  <div class="mb-3">
+    <%= form.text_area  :content, class:"form-control", placeholder:"Text..." %>
   </div>
 
   <div>
     <%= form.submit %>
   </div>
-<% end %>
+  <% end %>
+

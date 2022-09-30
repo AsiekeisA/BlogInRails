@@ -1,15 +1,14 @@
 <div class="card">
+  <div class="card-header text-end">
+    <cite class="text-muted"><%= comment.created_at.strftime("%k:%M %d/%m/%Y") %></cite>
+  </div>
   <div class="card-body">
-    <h5 class="card-title text-muted d-inline">
-      autor
-      <%= comment.user %>
-    </h5>
-    <p class="card-text">
-      tekst
-      <%= comment.content %>
-    </p>
-    <%= link_to "Delete", [comment.post, comment], data: { turbo_method: :delete,
-                                                           turbo_confirm: "Are you sure?" } %>
+    <blockquote class="blockquote mb-0">
+      <p>A well-known quote, contained in a blockquote element.</p>
+      <footer class="blockquote-footer"><%= comment.user %> </footer>
+      <%= link_to "Delete", [comment.post, comment], data: { turbo_method: :delete,
+                                                             turbo_confirm: "Are you sure?" } %>
+    </blockquote>
   </div>
 </div>
-<br>
+<br/>
