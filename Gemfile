@@ -20,6 +20,8 @@ gem 'simple_form', '~> 5.1' #forms
 
 gem 'devise', '~> 4.8', '>= 4.8.1'
 
+gem 'pundit', '~> 2.2'
+
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
