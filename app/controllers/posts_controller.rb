@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   before_action :find_post, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :authorized, only: [:create, :new, :update, :edit, :destroy]
 
   def index
     @posts = Post.all
@@ -9,11 +8,12 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    authorize @post
   end
 
   def create
     @post = Post.new(post_params)
-
+    authorize @post
     if @post.save
       redirect_to @post, notice: "Post created successfully!"
     else
@@ -25,9 +25,11 @@ class PostsController < ApplicationController
   end
 
   def edit
+    authorize @post
   end
   def update
     find_post
+    authorize @post
     if @post.update(post_params)
       redirect_to @post, notice: "Post updated successfully!"
     else
@@ -36,6 +38,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    authorize @post
     @post.destroy
     redirect_to posts_path, notice: "Post deleted successfully!"
   end
@@ -43,10 +46,6 @@ class PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:title, :content)
-  end
-
-  def authorized
-    redirect_to posts_path, notice: "Not authorized to manage posts" unless current_user.admin?
   end
 
   def find_post
