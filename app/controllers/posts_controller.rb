@@ -46,7 +46,7 @@ class PostsController < ApplicationController
   end
 
   def authorized
-    redirect_to posts_path, notice: "Not authorized to manage posts" unless current_user.id == 1
+    redirect_to posts_path, notice: "Not authorized to manage posts" unless current_user.admin?
   end
 
   def find_post

@@ -1,5 +1,5 @@
 <ul class="nav justify-content-end">
-  <% if user_signed_in? && current_user.id==1%>
+  <% if current_user.admin?%>
     <li class="nav-item">
       <%= link_to "Edit", edit_post_path(@post), class:"btn btn-outline-secondary" %>
     </li>
@@ -16,7 +16,7 @@
 <div class="card">
   <div class="card-header">
     <h1><%= @post.title %></h1>
-    <div><%= @post.created_at.strftime("%k:%M %d/%m/%Y") %></div>
+    <div><%= @post.created_at.strftime("%H:%M %d/%m/%Y") %></div>
   </div>
   <div class="card-body">
     <p class="card-text"><%= @post.content %></p>

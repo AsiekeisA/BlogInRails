@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
   end
 
   def authorized
-    redirect_to posts_path, notice: "Not authorized to delete" unless current_user.id == 1
+    redirect_to posts_path, notice: "Not authorized to delete" unless current_user.admin?
   end
 
 end
