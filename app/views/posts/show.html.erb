@@ -1,11 +1,10 @@
 <ul class="nav justify-content-end">
   <% if user_signed_in? && current_user.admin?%>
     <li class="nav-item">
-      <%= link_to "Edit", edit_post_path(@post), class:"btn btn-outline-secondary" %>
+      <%= link_to "Edit",  edit_admin_post_path(@post), class:"btn btn-outline-secondary" %>
     </li>
     <li class="nav-item">
-      <%= button_to "Destroy", @post, method: :delete,
-                  data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, class:"btn btn-outline-danger"  %>
+      <%= button_to "Delete", [:admin, @post], method: :delete, data: { turbo_confirm: "Are you sure?"}, class:"btn btn-outline-danger"  %>
     </li>
   <% end %>
   <li class="nav-item">
