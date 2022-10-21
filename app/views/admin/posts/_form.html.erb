@@ -21,6 +21,12 @@
     <%= form.text_area  :content, class:"form-control", placeholder:"Text..." %>
   </div>
 
+  <div class="mb-3">
+    <% form.label "Photo" %>
+    <%= form.file_field  :image %>
+  </div>
+
+
   <div>
     <%= form.submit :Submit, class:"btn btn-outline-secondary" %>
   </div>

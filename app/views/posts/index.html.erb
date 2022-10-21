@@ -2,18 +2,38 @@
 <section>
   <% @posts.each do |post|%>
     <br/>
-      <div class="card">
-        <div class="card-header">
-          <h5><%= post.title %></h5>
+<!--      <div class="card">-->
+<!--        <div class="card-header">-->
+<!--          <h5><%#= post.title %></h5>-->
+<!--        </div>-->
+<!--        <div class="card-body">-->
+<!--          <p class="card-text"><%#= post.content %></p>-->
+          <%#= link_to "Wiecej...", post, class:"btn btn-outline-secondary" %>
+<!--        </div>-->
+<!--        <div class="card-footer text-muted text-end">-->
+          <%#= post.created_at.strftime("%H:%M %d/%m/%Y") %>
+<!--        </div>-->
+<!--      </div>-->
+
+    <div class="card mb-3">
+      <div class="row g-0">
+        <% if post.image.attached? %>
+        <div class="col-md-4">
+          <img src="<%= (url_for(post.image))%>" class="img-fluid rounded-start">
         </div>
-        <div class="card-body">
-          <p class="card-text"><%= post.content %></p>
-          <%= link_to "Wiecej...", post, class:"btn btn-outline-secondary" %>
-        </div>
-        <div class="card-footer text-muted text-end">
-          <%= post.created_at.strftime("%H:%M %d/%m/%Y") %>
+        <div class="col-md-8">
+        <% else %>
+            <div class="col">
+        <% end %>
+          <div class="card-body">
+            <h5><%= post.title %></h5>
+            <p class="card-text"><%= post.content %></p>
+            <%= link_to "Wiecej...", post, class:"btn btn-outline-secondary" %>
+            <p class="card-text"><small <%= post.created_at.strftime("%H:%M %d/%m/%Y") %></small></p>
+          </div>
         </div>
       </div>
+    </div>
 
   <% end %>
 </section>

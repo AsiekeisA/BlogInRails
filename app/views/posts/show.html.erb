@@ -21,9 +21,15 @@
     <div><%= @post.created_at.strftime("%H:%M %d/%m/%Y") %></div>
   </div>
   <div class="card-body">
+    <% if @post.image.attached? %>
+      <div class="row">
+        <img src="<%= (url_for(@post.image))%>">
+      </div>
+    <% end %>
     <p class="card-text"><%= @post.content %></p>
+  </p>
   </div>
-  </div>
+</div>
 <br/>
 <div class="container">
   <h5> <%= @post.comments.count %> Comment<% if @post.comments.count != 1 %>s<% end %></h5>
