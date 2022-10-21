@@ -21,7 +21,11 @@ gem 'simple_form', '~> 5.1' #forms
 gem 'devise', '~> 4.8', '>= 4.8.1'
 
 gem 'pundit', '~> 2.2'
-
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary-edge', '~> 0.12.6.0'
+gem 'bootstrap', '~> 5.2.2'
+gem 'jquery-rails'
+gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

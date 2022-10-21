@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :posts, :only => [:new, :create, :edit, :update, :destroy] do
+    resources :posts, :only => [:new, :create, :edit, :update, :destroy, :show] do
       resources :comments, :only => [:destroy]
     end
   end

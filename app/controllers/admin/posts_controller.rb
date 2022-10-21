@@ -1,5 +1,5 @@
 class Admin::PostsController < AdminController
-  before_action :find_post, only: %i[ edit update destroy ]
+  before_action :find_post, only: %i[ edit update destroy show]
   before_action :authenticate_user!
 
   # def index
@@ -21,8 +21,15 @@ class Admin::PostsController < AdminController
     end
   end
 
-  # def show
-  # end
+  def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "my_blog_post#{@post.id}", template: "admin/posts/post", layout: "pdf", formats: [:html], encoding:"UTF-8"   # Excluding ".pdf" extension.
+      end
+    end
+
+  end
 
   def edit
     authorize @post
@@ -51,4 +58,5 @@ class Admin::PostsController < AdminController
   def find_post
     @post = Post.find(params[:id])
   end
+
 end
