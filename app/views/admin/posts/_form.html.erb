@@ -9,7 +9,11 @@
       </ul>
     </div>
   <% end %>
-
+  <% if @post.image.attached? %>
+    <div class="mb-3">
+      <img src="<%= (url_for(@post.image))%>">
+    </div>
+  <% end %>
   <div class="mb-3">
     <% form.label :title, style: "display: block"%>
     <%= form.text_field :title, class:"form-control", placeholder:"Title"  %>

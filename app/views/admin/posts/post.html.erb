@@ -5,13 +5,13 @@
     </div>
     <br/>
     <div class="card-body">
-      <% if @post.image.attached? %>
-        <div class="row">
-          <img src="<%= (url_for(@post.image))%>">
-
-          <%= image_tag wicked_pdf_asset_base64(url_for(@post.image)) %>
-        </div>
-      <% end %>
+      <%# if @post.image.attached? %>
+<!--        <div class="row">-->
+          <%#= wicked_pdf_image_tag 'psinka.jpg' %>
+          <%#= image_tag wicked_pdf_asset_base64(@post.image) %>
+<!--          <img src="<%#= (url_for(@post.image))%>">-->
+<!--        </div>-->
+      <%# end %>
       <p class="card-text"><%= @post.content %></p>
     </div>
   </div>

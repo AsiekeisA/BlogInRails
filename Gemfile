@@ -26,6 +26,7 @@ gem 'wkhtmltopdf-binary-edge', '~> 0.12.6.0'
 gem 'bootstrap', '~> 5.2.2'
 gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
+gem 'image_processing', '~> 1.12', '>= 1.12.2'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

@@ -22,9 +22,6 @@
           <img src="<%= (url_for(post.image))%>" class="img-fluid rounded-start">
         </div>
         <div class="col-md-8">
-        <% else %>
-            <div class="col">
-        <% end %>
           <div class="card-body">
             <h5><%= post.title %></h5>
             <p class="card-text"><%= post.content %></p>
@@ -32,6 +29,16 @@
             <p class="card-text"><small <%= post.created_at.strftime("%H:%M %d/%m/%Y") %></small></p>
           </div>
         </div>
+        <% else %>
+            <div class="col">
+              <div class="card-body">
+                <h5><%= post.title %></h5>
+                <div class="card-text"><%= post.content %></div>
+                <%= link_to "Wiecej...", post, class:"btn btn-outline-secondary" %>
+                <p class="card-text"><small <%= post.created_at.strftime("%H:%M %d/%m/%Y") %></small></p>
+              </div>
+            </div>
+        <% end %>
       </div>
     </div>
 
